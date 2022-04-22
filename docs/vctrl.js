@@ -1,7 +1,7 @@
 var dbdy=document.body;
 const jtbase='jt/';
 
-dbdy.innerHTML='<style>\nbody {background-color: #300;color: #0C0;}\nFL {background-color: #000; display: inline-block; margin:20px;}\n</style><svg class="animated"><defs><filter id="blm"><feConvolveMatrix preserveAlpha="true" order="3 3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" in="SourceGraphic" result="sha"/><feGaussianBlur stdDeviation="3" result="bml"/><feBlend mode="screen" in="bml" in2="sha" /></filter></defs></svg>';
+dbdy.innerHTML='<style>\nbody {background-color: #300;color: #0C0;}\nFL {background-color: #000; display: inline-block; margin:20px;min-width: 200px;min-height: 200px;}\n</style><svg class="animated"><defs><filter id="blm"><feConvolveMatrix preserveAlpha="true" order="3 3" kernelMatrix="0 -1 0 -1 5 -1 0 -1 0" in="SourceGraphic" result="sha"/><feGaussianBlur stdDeviation="3" result="bml"/><feBlend mode="screen" in="bml" in2="sha" /></filter></defs></svg>';
 
 
 var pblo;
