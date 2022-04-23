@@ -96,14 +96,20 @@ function clearvid()
 
 }
 var ezkole= document.createElement('FL');
-function vsyn()
+function vsyn(lky=null)
 {
-	ezkole.innerHTML='**********<br>';
 	
-	var lky=Object.keys(loadedvid);
-	lky.sort();
+	if(!lky)
+	{
+		lky=Object.keys(loadedvid);
+		lky.sort();
+	}
 	var lkyl=lky.length;
-	var davvs=new Int8Array(lkyl);
+	
+	var zlym=vsynvvs.length;
+	ezkole.innerHTML='*****'+lkyl+'('+zlym+')*****<br>';
+	if(lkyl > zlym){lkyl=zlym;}
+
 	var davlist=new Array(lkyl);
 	var avah=0;
 	for (var nim = 0;nim<lkyl;nim++){
@@ -113,7 +119,7 @@ function vsyn()
 		davlist[nim]=cvid;
 		cvid.pause();
 		cvid.style.display = 'none';
-		davvs[nim]=2;
+		vsynvvs[nim]=2;
 		var h1= document.createElement('h3');
 		h1.innerText=key;
 		h1.vvv=nim;
@@ -132,9 +138,12 @@ function vsyn()
 	}
 
 	ezkole.eff=effy;
-	ezkole.vvs=davvs;
+	ezkole.vvs=vsynvvs;
 	ezkole.vlist=davlist;
 	pblo.appendChild(ezkole);
+	pblo=ezkole;
+
+	return lky;
 
 }
 
@@ -153,6 +162,7 @@ function mkh1(blo,syg,idx)
 	
 
 }
+
 function tmb()
 {
 	var vibsl=vydz.length;
@@ -165,10 +175,12 @@ function tmb()
 
 }
 
+var ynfo=new ArrayBuffer(1024);
 function setup()
 {
 	
 	var vibsl=vydz.length;
+	var ynfoidx=0;
 	for(var i=0;i<vibsl;i+=2)
 	{
 		var blo= document.createElement('FL');
@@ -184,8 +196,9 @@ function setup()
 			blo.appendChild(foreffect);
 			foreffect.appendChild(vuj);
 			
-			blo.vvs=new Int8Array(1);
+			blo.vvs=new Int8Array(ynfo,ynfoidx,1);
 			blo.vlist=[vuj];
+			ynfoidx+=1;
 		}
 		else
 		{
@@ -203,12 +216,15 @@ function setup()
 			{
 				foreffect.appendChild(vujarr[j]);
 			}
-			blo.vvs=new Int8Array(svl);
+			blo.vvs=new Int8Array(ynfo,ynfoidx,svl);
 			blo.vlist=vujarr;
+			ynfoidx+=svl;
 		}
+		
 		dbdy.appendChild(blo);
 		vydz[i+1]=blo;
 	}
+	vsynvvs=new Int8Array(ynfo,ynfoidx,1024-ynfoidx);
 
 }
 
@@ -559,4 +575,5 @@ var kycmd=function(e) {
 
 document.onclick=kontimg;
 document.onkeydown=kycmd;
+
 setup();
